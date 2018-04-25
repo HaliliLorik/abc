@@ -1,0 +1,29 @@
+<div class="container" style="margin-top: 50px;">
+  <div class="row">
+    <div class="col">
+      <kendo-grid [data]="gridView"
+                  [pageSize]="pageSize"
+                  [skip]="skip"
+                  [pageable]="{
+                              buttonCount: buttonCount,
+                              info: info,
+                              type: type,
+                              pageSizes: pageSizes,
+                              previousNext: previousNext
+                            }"
+                  [scrollable]="'none'"
+                  (pageChange)="pageChange($event)"
+                  (cellClick)="clickedCell()"
+                  [selectable]="selectableSettings"
+                  [kendoGridSelectBy]="mySelectionKey"
+                  [selectedKeys]="mySelection">
+        <kendo-grid-column field="id" title="ID" width="40">
+        </kendo-grid-column>
+        <kendo-grid-column field="name" title="Name" width="250">
+        </kendo-grid-column>
+
+      </kendo-grid>
+    </div>
+  </div>
+</div>
+

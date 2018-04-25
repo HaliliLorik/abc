@@ -1,0 +1,59 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit(employee_form.form.valid)" name="employee_form" #employee_form="ngForm" novalidate>
+    <div class="row">
+      <div class="col-4">
+          <div class="form-group">
+            <label for="exampleInputEmail1">ID<span style="color: red;">*</span></label>
+            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="ID" name="id1" [(ngModel)]="employee.id" required>
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        <div class="form-group">
+          <label for="exampleInputEmail1">First name<span style="color: red;">*</span></label>
+          <input type="text" class="form-control" id="exampleInputEmail2" placeholder="First name" name="first_name1" [(ngModel)]="employee.first_name" required>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Last name<span style="color: red;">*</span></label>
+          <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Last name" name="last_name1" [(ngModel)]="employee.last_name" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Title</label>
+          <input type="text" class="form-control" id="exampleInputEmail5" placeholder="Title" name="title1" [(ngModel)]="employee.title">
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Date of birth</label>
+          <input type="text" class="form-control" id="exampleInputEmail6" placeholder="Date of birth" aria-describedby="birthdateHelp" name="date_of_birth1" [(ngModel)]="employee.date_of_birth">
+          <small id="birthdateHelp" class="form-text text-muted">2018-04-15 20:29:29</small>
+
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col">
+        <button type="submit" name="new" class="btn btn-success">Create new</button>
+        <button type="submit" name="edit" class="btn btn-secondary">Edit</button>
+      </div>
+      <div class="col">
+        <div class="alert alert-danger" role="alert" *ngIf="error_message!=''">
+          {{error_message}}
+        </div>
+        <div class="alert alert-success" role="alert" *ngIf="success_message!=''">
+          {{success_message}}
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,61 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit(project_form.form.valid)" name="project_form" #project_form="ngForm" novalidate>
+    <div class="row">
+      <div class="col-4">
+        <div class="form-group">
+          <label for="exampleInputEmail1">ID<span style="color: red;">*</span></label>
+          <input type="number" class="form-control" id="exampleInputEmail1" placeholder="ID" name="id1" [(ngModel)]="project.id" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Start date<span style="color: red;">*</span></label>
+          <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Start date" name="start_date" aria-describedby="dateHelp1" [(ngModel)]="project.start_date" required>
+          <small id="dateHelp1" class="form-text text-muted">2018-04-15 20:29:29</small>
+
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="form-group">
+          <label for="exampleInputEmail1">End date<span style="color: red;">*</span></label>
+          <input type="text" class="form-control" id="exampleInputEmail3" placeholder="End date" name="end_date" aria-describedby="dateHelp" [(ngModel)]="project.end_date" (keyup)="endDateChange()" required>
+          <small id="dateHelp" class="form-text text-muted">2018-04-15 20:29:29</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Name<span style="color: red;">*</span></label>
+          <input type="text" class="form-control" id="exampleInputEmail5" placeholder="Name" name="name" [(ngModel)]="project.name" required>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Status</label>
+          <input type="text" class="form-control" id="exampleInputEmail6" placeholder="Status" name="status" [(ngModel)]="project.status" readonly>
+
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col">
+        <button type="submit" name="new" class="btn btn-success">Create new</button>
+        <button type="submit" name="edit" class="btn btn-secondary">Edit</button>
+      </div>
+      <div class="col">
+        <div class="alert alert-danger" role="alert" *ngIf="error_message!=''">
+          {{error_message}}
+        </div>
+        <div class="alert alert-success" role="alert" *ngIf="success_message!=''">
+          {{success_message}}
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
